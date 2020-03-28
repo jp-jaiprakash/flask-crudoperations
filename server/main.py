@@ -4,7 +4,7 @@ from flask import Response
 
 from views.ConfigurationOperations import getAllConfigurationFromDB, getByConfigId, saveAConfiguration
 from views.CriteriaOperations import getAllCriteriaFromDB, getByCriteriaId, saveCriteria
-from views.FeatureOperations import getByFeatureId, getAllFeaturesFromDB, saveAFeature
+from views.FeatureOperations import getByFeatureId, getAllFeaturesFromDB, saveAFeature, getFeatureNCategoryFromDB
 
 from flask_cors import CORS
 
@@ -36,6 +36,10 @@ def saveTheFeature():
     print(request.json['id'])
     values = (data['feature'],data['value'],data['data'],data['category'],data['status'])
     return saveAFeature(data['id'],data['feature'],data['value'],data['data'],data['category'],data['status'])
+
+@app.route('/feature/featureNCategory')
+def getFeatureAndCategory():
+    return Response(json.dumps(getFeatureNCategoryFromDB()), mimetype='application/json')
 
 
 #

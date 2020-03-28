@@ -24,6 +24,16 @@ def getAllFeaturesFromDB():
             response.append(json.dumps(feature.__dict__))
     return response
 
+def getFeatureNCategoryFromDB():
+    sql = "select id,feature,category from m_feature"
+    result = databaseOperation(sql)
+    response = []
+    if result:
+        for row in result:
+            feature = Feature(row[2], row[0], None, row[1], None, None)
+            response.append(json.dumps(feature.__dict__))
+    return response
+
 def saveAFeature(id,feature, value, data, category, status):
     if id:
         sql = "update m_feature set feature='"+feature+"', value='"+value+"', data='"+data+"', category='"+category+"', status='"+status+"' where id=%d" %int(id)
