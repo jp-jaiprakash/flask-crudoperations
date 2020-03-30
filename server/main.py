@@ -77,7 +77,7 @@ def saveTheCriteria():
     data = request.json
     # print(request.json['id'])
     # values = (data['feature'],data['value'],data['data'],data['category'],data['status'])
-    return saveCriteria(None,data['feature'],data['category'],data['product'],data['datasource'],data['keyvalue'], data['sqlapi'])
+    return saveCriteria(None,data['feature'],data['category'],data['product'],data['datasource'],data['keyvalue'], data['sqlapi'], data['scoreCriteria'])
 
 # main driver function
 if __name__ == '__main__':
