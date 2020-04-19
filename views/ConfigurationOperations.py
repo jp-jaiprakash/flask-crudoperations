@@ -32,7 +32,7 @@ def saveAConfiguration(id,feature,category,product,weightage,greenmax,greenmin,a
     if id:
         sql = "update m_configuration set feature='"+feature+"', product='"+product+"', weightage='"+weightage+"', category='"+category+"', greenmax='"+greenmax+"', greenmin='"+greenmin+"' , ambermax='"+ambermax+"', ambermin='"+ambermin+"', redmax='"+redmax+"', redmin='"+redmin+"'where id=%d" %int(id)
     else:
-        sql = "insert into m_feature (feature,category,product,weightage,greenmax,greenmin,ambermax,ambermin,redmax,redmin) values " \
+        sql = "insert into m_configuration (feature,category,product,weightage,greenmax,greenmin,ambermax,ambermin,redmax,redmin) values " \
               "('"+feature+"','"+category+"','"+product+"','"+weightage+"','"+greenmax+"','"+greenmin+"','"+ambermax+"','"+ambermin+"','"+redmax+"','"+redmin+"')"
     print(sql)
     result = databaseOperationSave(sql)
